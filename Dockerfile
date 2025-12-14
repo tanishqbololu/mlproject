@@ -7,4 +7,5 @@ RUN pip install --no-cache-dir awscli
 RUN pip install --no-cache-dir -r requirements.txt
 
 
-CMD ["python3","app.py"]
+#CMD ["python3","app.py"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "2", "app:app"]
